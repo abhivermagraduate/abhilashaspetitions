@@ -27,16 +27,9 @@ public class Petition {
 	public void setPetitionText(String petitionText) {
 		this.petitionText = petitionText;
 	}
-	public Date getCreateDateTime() {
-		return createDateTime;
-	}
-	public void setCreateDateTime(Date createDateTime) {
-		this.createDateTime = createDateTime;
-	}
 	@Override
 	public String toString() {
-		return "Petition [name=" + name + ", email=" + email + ", petitionText=" + petitionText + ", createDateTime="
-				+ createDateTime + "]";
+		return "Petition [name=" + name + ", email=" + email + ", petitionText=" + petitionText + "]";
 	}
 
 }

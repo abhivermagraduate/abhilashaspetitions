@@ -85,8 +85,6 @@
 <%@ include file="header.jsp"%>
 <body>
 	<div class="container">
-		<form method="post" action="/JavaWebFinalAssignment/FileUpload.htm"
-			enctype="multipart/form-data">
 			<%
 			String displayErrorMessage = (String) request.getAttribute("errorMessageKey");
 			if (displayErrorMessage != null) {
@@ -111,7 +109,7 @@
   
         
         
-        <form:form action="createPetition" method="post" modelAttribute="petition">
+        <form:form action="createPetition.htm" method="post" modelAttribute="petition">
 			<form:label path="name">Your Name:</form:label>
 			<form:input path="name"/><br/>
 			

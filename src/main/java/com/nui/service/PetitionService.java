@@ -1,5 +1,7 @@
 package com.nui.service;
 
+import java.sql.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,8 @@ public class PetitionService {
     	petitionEntity.setName(petition.getName());
     	petitionEntity.setEmail(petition.getEmail());
     	petitionEntity.setPetitionText(petition.getPetitionText());
+    	java.sql.Timestamp currentDateTime = new java.sql.Timestamp(new java.util.Date().getTime());
+    	petitionEntity.setCreateDateTime(currentDateTime);
     	getPetitionRespository().save(petitionEntity);
     }
     

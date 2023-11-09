@@ -2,24 +2,24 @@ package com.nui.entity;
 
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 @Entity
+@Table(name = "petition", catalog = "petitionmanagement	")
 public class PetitionEntity  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
 	private String name;
 	private String email;
 	private String petitionText;
-	private Date createDateTime;
+	private Timestamp createDateTime;
 	public int getId() {
 		return id;
 	}
@@ -44,10 +44,10 @@ public class PetitionEntity  {
 	public void setPetitionText(String petitionText) {
 		this.petitionText = petitionText;
 	}
-	public Date getCreateDateTime() {
+	public Timestamp getCreateDateTime() {
 		return createDateTime;
 	}
-	public void setCreateDateTime(Date createDateTime) {
+	public void setCreateDateTime(Timestamp createDateTime) {
 		this.createDateTime = createDateTime;
 	}
 	
