@@ -1,5 +1,7 @@
 package com.nui.controller;
 
+import java.io.InputStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,51 +16,52 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.nui.model.Petition;
 import com.nui.service.PetitionService;
 
-@SpringBootApplication(scanBasePackages = {"com.nui.service","com.nui.dao"})
+@SpringBootApplication(scanBasePackages = { "com.nui.service", "com.nui.dao" })
 @Controller
 @EntityScan("com.nui.entity")
 @EnableJpaRepositories("com.nui.dao")
 public class PetitionController {
-	
+
 	@Autowired
 	private PetitionService petitionService;
-	
-    @GetMapping("/showPetitions.htm")
-    public String showPetitions() {
-        return "showPetitions";
-    }
-    
-    
-    @GetMapping("/createPetition.htm")
-    public String showCreatePetitionForm(Model model) {
-    	Petition petition = new Petition();
+
+	@GetMapping("/showPetitions.htm")
+	public String showPetitions(Model model) {
+		model.addAttribute("petitions",getPetitionService().getPetitions());		
+		return "showPetitions";
+	}
+
+	@GetMapping("/createPetition.htm")
+	public String showCreatePetitionForm(Model model) {
+		Petition petition = new Petition();
 		model.addAttribute("petition", petition);
-        return "createPetition";
-    }
-    
-    
-    @PostMapping("/createPetition.htm")
-    public String createPetition(@ModelAttribute("petition") Petition petition) {
-    	System.err.println("petition " + petition);
-    	getPetitionService().savePetition(petition);
-    	    	
-        return "createPetition";
-    }
+		return "createPetition";
+	}
+
+	@PostMapping("/createPetition.htm")
+	public String createPetition(@ModelAttribute("petition") Petition petition) {
+		System.err.println("petition " + petition);
+		
+
+		
+		getPetitionService().savePetition(petition);
+		return "createPetition";
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(PetitionController.class, args);
 	}
 
-
 	public PetitionService getPetitionService() {
 		return petitionService;
 	}
 
-
 	public void setPetitionService(PetitionService petitionService) {
 		this.petitionService = petitionService;
 	}
+	
+	
+	
+	
 
-	
-	
 }

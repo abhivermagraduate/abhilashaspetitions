@@ -108,14 +108,16 @@
         <h2>Create a Petition</h2>
   
         
+        <form:form action="createPetition.htm" enctype="multipart/form-data" method="post" modelAttribute="petition">
         
-        <form:form action="createPetition.htm" method="post" modelAttribute="petition">
 			<form:label path="name">Your Name:</form:label>
 			<form:input path="name"/><br/>
 			
 			<form:label path="email">E-mail:</form:label>
 			<form:input path="email"/><br/>
 			
+						<form:label path="imageFile">Select a image to upload :</form:label>
+			<form:input type="file" path="imageFile" /><br/>
 			
 			
 			<form:label path="petitionText">Petition Text:</form:label>

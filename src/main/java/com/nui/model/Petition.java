@@ -1,13 +1,16 @@
 package com.nui.model;
 
-import java.util.Date;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class Petition {
 
 	private String name;
 	private String email;
 	private String petitionText;
-	
+	private Integer id;
+    private MultipartFile imageFile;
+
 	
 	public String getName() {
 		return name;
@@ -27,9 +30,20 @@ public class Petition {
 	public void setPetitionText(String petitionText) {
 		this.petitionText = petitionText;
 	}
-	@Override
-	public String toString() {
-		return "Petition [name=" + name + ", email=" + email + ", petitionText=" + petitionText + "]";
+	
+	public Integer getId() {
+		return id;
 	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public MultipartFile getImageFile() {
+		return imageFile;
+	}
+	public void setImageFile(MultipartFile imageFile) {
+		this.imageFile = imageFile;
+	}
+	
+	
 
 }
