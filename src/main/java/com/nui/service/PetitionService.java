@@ -32,6 +32,10 @@ public class PetitionService {
 		petitionEntity.setPetitionText(petition.getPetitionText());
 		java.sql.Timestamp currentDateTime = new java.sql.Timestamp(new java.util.Date().getTime());
 		petitionEntity.setCreateDateTime(currentDateTime);
+		petitionEntity.setImageId(petition.getImageId());
+		petitionEntity.setPetitionTitle(petition.getPetitionTitle());
+		petitionEntity.setGeographicArea(petition.getGeographicArea());
+		petitionEntity.setPetitionScope(petition.getPetitionScope());
 		getPetitionRespository().save(petitionEntity);
 	}
 

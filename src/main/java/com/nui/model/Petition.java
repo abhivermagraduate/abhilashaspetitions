@@ -10,6 +10,10 @@ public class Petition {
 	private String petitionText;
 	private Integer id;
     private MultipartFile imageFile;
+    private String imageId;
+    private String petitionTitle;
+    private String petitionScope;
+    private String geographicArea;
 
 	
 	public String getName() {
@@ -42,6 +46,30 @@ public class Petition {
 	}
 	public void setImageFile(MultipartFile imageFile) {
 		this.imageFile = imageFile;
+	}
+	public String getImageId() {
+		return imageId;
+	}
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+	}
+	public String getPetitionTitle() {
+		return petitionTitle;
+	}
+	public void setPetitionTitle(String petitionTitle) {
+		this.petitionTitle = petitionTitle;
+	}
+	public String getPetitionScope() {
+		return petitionScope;
+	}
+	public void setPetitionScope(String petitionScope) {
+		this.petitionScope = petitionScope;
+	}
+	public String getGeographicArea() {
+		return geographicArea;
+	}
+	public void setGeographicArea(String geographicArea) {
+		this.geographicArea = geographicArea;
 	}
 	
 	
