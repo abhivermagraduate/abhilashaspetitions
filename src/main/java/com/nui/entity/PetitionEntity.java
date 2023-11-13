@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "petition", catalog = "petitionmanagement	")
+@Table(name = "petition")
 public class PetitionEntity  {
 
     @Id
