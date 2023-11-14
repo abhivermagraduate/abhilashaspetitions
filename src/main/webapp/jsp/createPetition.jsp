@@ -116,12 +116,17 @@
 			<form:label path="email">E-mail:</form:label>
 			<form:input path="email"/><br/>
 			
+			<form:label path="petitionTitle">Petition Title :</form:label>
+			<form:input path="petitionTitle"/><br/>
+			
+						
+			<form:label path="petitionText">Petition Text:</form:label>
+			<form:textarea path="petitionText" cols="25" rows="5"/><br/>
+			
+			
 						<form:label path="imageFile">Select a image to upload :</form:label>
 			<form:input type="file" path="imageFile" /><br/>
 			
-			
-			<form:label path="petitionText">Petition Text:</form:label>
-			<form:textarea path="petitionText" cols="25" rows="5"/><br/>
 				
 			<form:button>Create Petition</form:button>
 		</form:form>

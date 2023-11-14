@@ -54,11 +54,11 @@ public class PetitionController {
 	}
 
 	@PostMapping("/createPetition.htm")
-	public String createPetition(@ModelAttribute("petition") Petition petition) throws IOException {
+	public String createPetition(@ModelAttribute("petition") Petition petition,Model model) throws IOException {
 		System.err.println("petition " + petition);
 		saveImageFile(petition);
 		getPetitionService().savePetition(petition);
-		return "createPetition";
+		return showPetitions( model);
 	}
 
 	public static void main(String[] args) {
