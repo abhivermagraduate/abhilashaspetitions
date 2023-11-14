@@ -1,0 +1,127 @@
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+.header {
+  padding: 5px;
+  text-align: center;
+  background: white;
+  color: blue;
+  font-size: 20px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+#liTag
+{
+  float: left;
+  border-right:1px solid #bbb;
+}
+#footer {
+  list-style-type: none;
+  margin: 0;
+  padding: 14px 16px;
+  background-color: blue;
+  color: white;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: green;
+}
+
+.active {
+  background-color: green;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: center;
+  width: 180px;
+}
+
+
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+div.footer {
+  padding: 15px;
+  text-align: left;
+color: white;
+
+}
+
+#assignmentTables {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#assignmentTables td, #assignmentTables th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+#assignmentTables tr:hover {background-color: #ddd;}
+
+#assignmentTables th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: blue;
+  color: white;
+}
+
+ol.no-numbers {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footerLinksDiv {
+    float: left;
+    margin-right: 10px;
+    min-width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.footerMainDiv {
+    float: left;
+    width: 100%;
+    margin-top: 60px;
+    padding: 40px 0px 20px 0px;
+}
+
+a:link, a:visited {
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}

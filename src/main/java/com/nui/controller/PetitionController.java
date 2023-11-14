@@ -24,6 +24,7 @@ import com.nui.model.Petition;
 import com.nui.service.PetitionService;
 
 import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
 
 @SpringBootApplication(scanBasePackages = { "com.nui.service", "com.nui.dao" })
 @Controller
@@ -44,6 +45,7 @@ public class PetitionController {
 		return "showPetitions";
 	}
 
+	
 	@GetMapping("/createPetition.htm")
 	public String showCreatePetitionForm(Model model) {
 		Petition petition = new Petition();
@@ -96,6 +98,14 @@ public class PetitionController {
 			if (outStream != null)
 				outStream.close();
 		}
+	}
+	
+	@GetMapping("/getPetitionDetails.htm")
+	public String getPetitionDetails(HttpServletRequest request,Model model) {
+		String petitionId = request.getParameter("petitionId");
+		Petition petition = getPetitionService().getPetitionDetails(Integer.parseInt(petitionId));
+		model.addAttribute("petition", petition);
+		return "viewPetitionDetails";
 	}
 
 	public ServletContext getContext() {

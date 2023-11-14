@@ -17,7 +17,7 @@
 <body>
 	<div class="container">
 		<%
-		List<Petition> petitionList = (List) request.getAttribute("petitions");
+		Petition petition  = (Petition)request.getAttribute("petition");
 		%>
 
 		<div class="row">
@@ -30,28 +30,25 @@
 						<table class="table">
 
 
-							<%
-							Iterator iterator = petitionList.iterator();
-							while (iterator.hasNext()) {
-								Petition petition = (Petition) iterator.next();
-							%>
-							<tr>
+						<tr>
 								<td>
 									<div class="bg-image">
 									<a href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">	<img src="upload/<%=petition.getImageId()%>" class="img-fluid"
 											alt="Sample" /> </a>
 										
 									</div>
-
 								</td>
+								
+								
+						</tr>
+							<tr>
+								
 								<td>
-								<b><%=petition.getPetitionTitle()%></b> <br>
+								<%=petition.getPetitionTitle()%> <br>
 								<%=petition.getPetitionText()%></td>
 								<td> <a href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">Read more</a></td>
 							</tr>
-							<%
-							}
-							%>
+							
 						</table>
 					</div>
 				</div>

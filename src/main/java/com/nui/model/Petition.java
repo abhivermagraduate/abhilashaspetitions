@@ -1,6 +1,8 @@
 package com.nui.model;
 
 
+import java.sql.Timestamp;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class Petition {
@@ -14,6 +16,8 @@ public class Petition {
     private String petitionTitle;
     private String petitionScope;
     private String geographicArea;
+	private Timestamp createDateTime;
+
 
 	
 	public String getName() {
@@ -70,6 +74,12 @@ public class Petition {
 	}
 	public void setGeographicArea(String geographicArea) {
 		this.geographicArea = geographicArea;
+	}
+	public Timestamp getCreateDateTime() {
+		return createDateTime;
+	}
+	public void setCreateDateTime(Timestamp createDateTime) {
+		this.createDateTime = createDateTime;
 	}
 	
 	

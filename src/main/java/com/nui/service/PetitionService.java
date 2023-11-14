@@ -3,6 +3,7 @@ package com.nui.service;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,7 +54,25 @@ public class PetitionService {
 		petition.setEmail(petitionEntity.getEmail());
 		petition.setName(petitionEntity.getName());
 		petition.setPetitionText(petitionEntity.getPetitionText());
+		petition.setPetitionTitle(petitionEntity.getPetitionTitle());
+		petition.setImageId(petitionEntity.getImageId());
+		petition.setCreateDateTime(petitionEntity.getCreateDateTime());
+		petition.setGeographicArea(petitionEntity.getGeographicArea());
+		petition.setPetitionScope(petitionEntity.getPetitionScope());
+		petition.setId(petitionEntity.getId());
 		return petition;
+	}
+
+	public Petition getPetitionDetails(Integer petitionId) {
+
+		Optional<PetitionEntity> petitionEntity = getPetitionRespository().findById(petitionId);
+
+		if (petitionEntity != null) {
+			return populatePetition(petitionEntity.get());
+		} else {
+			return null;
+		}
+
 	}
 
 }
