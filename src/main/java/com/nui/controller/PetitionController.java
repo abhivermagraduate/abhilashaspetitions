@@ -16,11 +16,14 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.nui.model.Petition;
+import com.nui.model.PetitionSignature;
 import com.nui.service.PetitionService;
 
 import jakarta.servlet.ServletContext;
@@ -34,10 +37,9 @@ public class PetitionController {
 
 	@Autowired
 	private PetitionService petitionService;
-	
-	@Autowired
-	private ServletContext context; 
 
+	@Autowired
+	private ServletContext context;
 
 	@GetMapping("/showPetitions.htm")
 	public String showPetitions(Model model) {
@@ -45,7 +47,6 @@ public class PetitionController {
 		return "showPetitions";
 	}
 
-	
 	@GetMapping("/createPetition.htm")
 	public String showCreatePetitionForm(Model model) {
 		Petition petition = new Petition();
@@ -54,11 +55,13 @@ public class PetitionController {
 	}
 
 	@PostMapping("/createPetition.htm")
-	public String createPetition(@ModelAttribute("petition") Petition petition,Model model) throws IOException {
+	public String createPetition(@ModelAttribute("petition") Petition petition, Model model) throws IOException {
 		System.err.println("petition " + petition);
 		saveImageFile(petition);
 		getPetitionService().savePetition(petition);
-		return showPetitions( model);
+		model.addAttribute("petition", petition);
+		model.addAttribute("displayMessage", "Petition Created Successfully");
+		return showPetitions(model);
 	}
 
 	public static void main(String[] args) {
@@ -77,15 +80,15 @@ public class PetitionController {
 		OutputStream outStream = null;
 		try {
 			UUID uuid = UUID.randomUUID();
-			String imageFileName = uuid+petition.getImageFile().getOriginalFilename();
+			String imageFileName = uuid + petition.getImageFile().getOriginalFilename();
 			petition.setImageId(imageFileName);
 			String uploadPath = context.getRealPath("") + File.separator + "upload";
 			Files.createDirectories(Paths.get(uploadPath));
 			InputStream filecontent = petition.getImageFile().getInputStream();
 			// Store file in this directory.
-			
-		    System.err.println(uploadPath);
-			File targetFile = new File(uploadPath +  File.separator+imageFileName);
+
+			System.err.println(uploadPath);
+			File targetFile = new File(uploadPath + File.separator + imageFileName);
 			outStream = new FileOutputStream(targetFile);
 			byte[] buf = new byte[8192];
 			int length;
@@ -99,12 +102,14 @@ public class PetitionController {
 				outStream.close();
 		}
 	}
-	
+
 	@GetMapping("/getPetitionDetails.htm")
-	public String getPetitionDetails(HttpServletRequest request,Model model) {
+	public String getPetitionDetails(HttpServletRequest request, Model model) {
 		String petitionId = request.getParameter("petitionId");
 		Petition petition = getPetitionService().getPetitionDetails(Integer.parseInt(petitionId));
 		model.addAttribute("petition", petition);
+		PetitionSignature petitionSignature = new PetitionSignature();
+		model.addAttribute("petitionSignature", petitionSignature);
 		return "viewPetitionDetails";
 	}
 
@@ -114,6 +119,13 @@ public class PetitionController {
 
 	public void setContext(ServletContext context) {
 		this.context = context;
+	}
+
+	@PostMapping("/signPetition.htm")
+	public String signPetition(@ModelAttribute("petitionSignature") PetitionSignature petitionSignature, Model model)
+			throws IOException {
+		System.err.println("petition " + petitionSignature);
+		return showPetitions(model);
 	}
 
 }

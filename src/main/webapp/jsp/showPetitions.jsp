@@ -5,6 +5,8 @@
 <!-- Purpose of this jsp is to give option to user to upload xml file -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.nui.model.Petition"%>
@@ -19,7 +21,16 @@
 		<%
 		List<Petition> petitionList = (List) request.getAttribute("petitions");
 		%>
+		<%
+		String displayMessage = (String) request.getAttribute("displayMessage");
+		if (displayMessage != null) {
+		%>
+		<br>
+		<p style="color: red"><%=displayMessage%></p>
 
+		<%
+		}
+		%>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
@@ -38,16 +49,19 @@
 							<tr>
 								<td>
 									<div class="bg-image">
-									<a href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">	<img src="upload/<%=petition.getImageId()%>" class="img-fluid"
-											alt="Sample" /> </a>
-										
+										<a
+											href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">
+											<img src="upload/<%=petition.getImageId()%>"
+											class="img-fluid" alt="Sample" />
+										</a>
+
 									</div>
 
 								</td>
-								<td>
-								<b><%=petition.getPetitionTitle()%></b> <br>
-								<%=petition.getPetitionText()%></td>
-								<td> <a href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">Read more</a></td>
+								<td><b><%=petition.getPetitionTitle()%></b> <br> <%=petition.getPetitionText()%></td>
+								<td><a
+									href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">Read
+										more</a></td>
 							</tr>
 							<%
 							}

@@ -85,17 +85,16 @@
 <%@ include file="header.jsp"%>
 <body>
 	<div class="container">
-			<%
-			String displayErrorMessage = (String) request.getAttribute("errorMessageKey");
-			if (displayErrorMessage != null) {
+		<%
+			String displayMessage = (String) request.getAttribute("displayMessage");
+			if (displayMessage != null) {
 			%>
 			<br>
-			<p style="color: red"><%=displayErrorMessage%></p>
+			<p style="color: red"><%=displayMessage%></p>
 
 			<%
 			}
 			%>
-
     <header>
         <h1>Support Our Cause</h1>
     </header>
