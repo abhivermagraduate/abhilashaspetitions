@@ -69,22 +69,28 @@
 
 							<form:label path="name">Your Name:</form:label>
 							<form:input path="name" />
-							<br/><br/>
+							<br />
+							<br />
 
 							<form:label path="email">E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </form:label>
 							<form:input path="email" />
-							<br/><br/>
+							<br />
+							<br />
 
 
-							<form:radiobutton path="petitionWinNotificationStatus" />
+							<form:radiobutton path="petitionWinNotificationStatus"
+								value="true" />
 							<form:label path="petitionWinNotificationStatus">Yes! Tell me if this petition wins, and how I can help other relevant petitions</form:label>
-<br/><br/>
-							<form:radiobutton path="petitionProgressNotificationStatus" checked="false"/>
-							<form:label path="petitionProgressNotificationStatus">No. I don't want to hear about this petition’s progress or other relevant petitions.</form:label>
+							<br />
+							<br />
+							<form:radiobutton path="petitionProgressNotificationStatus"
+								value="true" />
+							<form:label path="petitionProgressNotificationStatus">No. I don't want to hear about this petition's progress or other relevant petitions.</form:label>
 
-<br/><br/>
-
-
+							<br />
+							<br />
+							<input id="petitionId" name="petitionId" type="hidden" value="<%=petition.getId()%>"/>
+							
 							<form:button>Sign this petition</form:button>
 						</form:form>
 

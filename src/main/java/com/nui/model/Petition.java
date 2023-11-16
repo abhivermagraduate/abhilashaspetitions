@@ -17,7 +17,8 @@ public class Petition {
     private String petitionScope;
     private String geographicArea;
 	private Timestamp createDateTime;
-
+	private Integer signatureCount =0;
+	private Integer signatureGoalCount;
 
 	
 	public String getName() {
@@ -81,7 +82,17 @@ public class Petition {
 	public void setCreateDateTime(Timestamp createDateTime) {
 		this.createDateTime = createDateTime;
 	}
+	public Integer getSignatureCount() {
+		return signatureCount;
+	}
+	public void setSignatureCount(Integer signatureCount) {
+		this.signatureCount = signatureCount;
+	}
+	public Integer getSignatureGoalCount() {
+		return signatureGoalCount;
+	}
+	public void setSignatureGoalCount(Integer signatureGoalCount) {
+		this.signatureGoalCount = signatureGoalCount;
+	}
 	
-	
-
 }

@@ -19,6 +19,7 @@
 
  <link rel="stylesheet" href="stylesheet/style.css">
 
+    <script type="application/javascript" src="script/functions.js"></script>
 
 
 </head>
@@ -33,6 +34,7 @@
 			<ul>
 				<li id="liTag"><a href="showPetitions.htm">Home</a></li>
 				<li id="liTag"><a href="createPetition.htm">Create Petition</a></li>
+				<li id="liTag"><a href="showSearchPetition.htm">Search Petition</a></li>
 			</ul>
 
 		</div>

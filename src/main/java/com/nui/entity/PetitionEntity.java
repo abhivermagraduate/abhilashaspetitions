@@ -17,11 +17,11 @@ public class PetitionEntity {
 
 	@Id
 	@Column(name = "id")
-
 	private int id;
 
 	@Column(name = "name")
 	private String name;
+	
 	@Column(name = "email")
 	private String email;
 
@@ -44,15 +44,20 @@ public class PetitionEntity {
 	@Column(name = "geographic_area")
 	private String geographicArea;
 	
-	
-	@OneToMany(
-	        mappedBy = "petition",
-	        cascade = CascadeType.ALL,
-	        orphanRemoval = true
-	    )
-    private List<PetitionSignatureEntity> comments = new ArrayList<>();
+	@Column(name = "signature_goal_count")
+	private Integer signatureGoalCount;
 
-	
+
+	@OneToMany(mappedBy = "petition", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<PetitionSignatureEntity> petitionSignatures = new ArrayList<>();
+
+	public List<PetitionSignatureEntity> getPetitionSignatures() {
+		return petitionSignatures;
+	}
+
+	public void setPetitionSignatures(List<PetitionSignatureEntity> petitionSignatures) {
+		this.petitionSignatures = petitionSignatures;
+	}
 
 	public int getId() {
 		return id;
@@ -125,5 +130,29 @@ public class PetitionEntity {
 	public void setGeographicArea(String geographicArea) {
 		this.geographicArea = geographicArea;
 	}
+
+	public Integer getSignatureGoalCount() {
+		return signatureGoalCount;
+	}
+
+	public void setSignatureGoalCount(Integer signatureGoalCount) {
+		this.signatureGoalCount = signatureGoalCount;
+	}
+
+	@Override
+	public String toString() {
+		return "PetitionEntity [id=" + id + ", name=" + name + ", email=" + email + ", createDateTime=" + createDateTime
+				+ ", petitionText=" + petitionText + ", imageId=" + imageId + ", petitionTitle=" + petitionTitle
+				+ ", petitionScope=" + petitionScope + ", geographicArea=" + geographicArea + ", signatureGoalCount="
+				+ signatureGoalCount + ", petitionSignatures=" + petitionSignatures + ", getPetitionSignatures()="
+				+ getPetitionSignatures() + ", getId()=" + getId() + ", getName()=" + getName() + ", getEmail()="
+				+ getEmail() + ", getPetitionText()=" + getPetitionText() + ", getCreateDateTime()="
+				+ getCreateDateTime() + ", getImageId()=" + getImageId() + ", getPetitionTitle()=" + getPetitionTitle()
+				+ ", getPetitionScope()=" + getPetitionScope() + ", getGeographicArea()=" + getGeographicArea()
+				+ ", getSignatureGoalCount()=" + getSignatureGoalCount() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
+	
 
 }

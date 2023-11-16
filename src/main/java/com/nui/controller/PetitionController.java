@@ -125,7 +125,25 @@ public class PetitionController {
 	public String signPetition(@ModelAttribute("petitionSignature") PetitionSignature petitionSignature, Model model)
 			throws IOException {
 		System.err.println("petition " + petitionSignature);
+
+		getPetitionService().savePetitionSignature(petitionSignature);
+
 		return showPetitions(model);
+	}
+
+	@GetMapping("/showSearchPetition.htm")
+	public String showSearchPetition(Model model) {
+		System.out.println("PetitionController.showSearchPetition()");
+		return "searchPetition";
+	}
+
+	@GetMapping("/searchPetition.htm")
+	public String searchPetition(HttpServletRequest request, Model model) {
+
+		String petitionTitle = request.getParameter("petitionTitle");
+		
+		model.addAttribute("petitions", getPetitionService().searchPetition(petitionTitle));
+		return "searchPetitionResult";
 	}
 
 }
