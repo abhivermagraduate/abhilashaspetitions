@@ -34,16 +34,16 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header bg-info bg-gradient" align="center">
-						<h5 class="card-title fw-bolder">Discover petitions to sign</h5>
-					</div>
+				
 					<div class="card-body">
-						Search Petition : <input id="searchPetition" name="searchPetition" type="text" size="25" />
+						Search Petition : <input id="petitionTitle" name="petitionTitle" type="text" size="25" />
 					 <button class="btn btn-primary" id="post" type="button" onclick="submitSearch()">Search</button>
 					
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="row" id="searchResultDIV">
 		</div>
 	</div>
 </body>

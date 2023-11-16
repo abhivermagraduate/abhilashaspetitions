@@ -33,9 +33,6 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header bg-info bg-gradient" align="center">
-						<h5 class="card-title fw-bolder">Discover petitions to sign</h5>
-					</div>
 					<div class="card-body">
 						<table class="table">
 

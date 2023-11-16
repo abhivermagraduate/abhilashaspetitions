@@ -137,11 +137,11 @@ public class PetitionController {
 		return "searchPetition";
 	}
 
-	@GetMapping("/searchPetition.htm")
+	@PostMapping("/searchPetition.htm")
 	public String searchPetition(HttpServletRequest request, Model model) {
 
 		String petitionTitle = request.getParameter("petitionTitle");
-		
+		System.out.println("PetitionController.searchPetition()"+petitionTitle);
 		model.addAttribute("petitions", getPetitionService().searchPetition(petitionTitle));
 		return "searchPetitionResult";
 	}
