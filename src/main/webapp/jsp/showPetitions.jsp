@@ -16,6 +16,10 @@
 <!DOCTYPE html>
 <html>
 <%@ include file="header.jsp"%>
+
+
+
+
 <body>
 	<div class="container">
 		<%
@@ -34,10 +38,10 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header bg-info bg-gradient" align="center">
+					<div class="card-header" align="center">
 						<h5 class="card-title fw-bolder">Discover petitions to sign</h5>
 					</div>
-					<div class="card-body">
+					<div class="card-body text-primary">
 						<table class="table">
 
 
@@ -52,13 +56,14 @@
 										<a
 											href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">
 											<img src="upload/<%=petition.getImageId()%>"
-											class="img-fluid" alt="Sample" />
+											  class="img-fluid"  />
 										</a>
 
 									</div>
 
 								</td>
-								<td><b><%=petition.getPetitionTitle()%></b> <br> <%=petition.getPetitionText()%>
+								<td><b><a href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>"><%=petition.getPetitionTitle()%></a></b> <br> <p class="show-read-more"> <%=petition.getPetitionText()%></p>
+								<br>
 								<%=petition.getSignatureGoalCount()%>
 								
 								<br>
@@ -69,9 +74,7 @@
 		  <%=petition.getSignatureCount()%> signed of <%=petition.getSignatureGoalCount()%> goal
 									
 								</td>
-								<td><a
-									href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">Read
-										more</a></td>
+								<td></td>
 							</tr>
 							
 							

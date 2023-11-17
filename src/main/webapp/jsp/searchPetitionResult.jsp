@@ -34,7 +34,8 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-body">
-						<table class="table">
+												<table class="table">
+
 
 
 							<%
@@ -48,13 +49,14 @@
 										<a
 											href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">
 											<img src="upload/<%=petition.getImageId()%>"
-											class="img-fluid" alt="Sample" />
+											  class="img-fluid"  />
 										</a>
 
 									</div>
 
 								</td>
-								<td><b><%=petition.getPetitionTitle()%></b> <br> <%=petition.getPetitionText()%>
+								<td><b><a href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>"><%=petition.getPetitionTitle()%></a></b> <br> <p class="show-read-more"> <%=petition.getPetitionText()%></p>
+								<br>
 								<%=petition.getSignatureGoalCount()%>
 								
 								<br>
@@ -65,10 +67,9 @@
 		  <%=petition.getSignatureCount()%> signed of <%=petition.getSignatureGoalCount()%> goal
 									
 								</td>
-								<td><a
-									href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">Read
-										more</a></td>
+								<td></td>
 							</tr>
+							
 							
 							
 							

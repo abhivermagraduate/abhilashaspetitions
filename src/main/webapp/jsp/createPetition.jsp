@@ -37,24 +37,24 @@ h1 {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.petition-form {
+.petitionForm {
 	display: flex;
 	flex-direction: column;
 }
 
-.petition-form label {
+.petitionForm label {
 	font-weight: bold;
 	margin-bottom: 5px;
 }
 
-.petition-form input[type="text"], .petition-form textarea {
+.petitionForm input[type="text"], .petitionForm textarea {
 	margin-bottom: 15px;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 }
 
-.petition-form button {
+.petitionForm button {
 	background-color: #333;
 	color: #fff;
 	padding: 10px 20px;
@@ -63,7 +63,7 @@ h1 {
 	cursor: pointer;
 }
 
-.petition-form button:hover {
+.petitionForm button:hover {
 	background-color: #555;
 }
 
@@ -74,25 +74,60 @@ label {
 	text-align: left;
 }
 
-input[type=text], input[type=password], select {
+input[type=text], select {
 	width: 200px;
 }
 
-input[type=radio] {
-	display: inline-block;
-	margin-left: 45px;
-}
 
-input[type=checkbox] {
-	display: inline-block;
-	margin-right: 190px;
-}
+
 
 button {
 	padding: 10px;
 	margin: 10px;
 }
 </style>
+
+<script type = "text/javascript">
+      // Form validation code will come here.
+      function validate() {
+      
+         if( document.petitionForm.name.value == "" ) {
+            alert( "Please enter your name" );
+            document.petitionForm.name.focus() ;
+            return false;
+         }
+         if( document.petitionForm.email.value == "" ) {
+             alert( "Please enter your email Id" );
+             document.petitionForm.email.focus() ;
+             return false;
+          }
+         if( document.petitionForm.petitionTitle.value == "" ) {
+             alert( "Please enter petition title" );
+             document.petitionForm.petitionTitle.focus() ;
+             return false;
+          }
+         if( document.petitionForm.petitionText.value == "" ) {
+             alert( "Please enter petition text" );
+             document.petitionForm.petitionText.focus() ;
+             return false;
+          }
+         if( document.petitionForm.signatureGoalCount.value == "" ) {
+             alert( "Please enter signature goal count" );
+             document.petitionForm.signatureGoalCount.focus() ;
+             return false;
+          }
+         if( document.petitionForm.geographicArea.value == "" ) {
+             alert( "Please enter City, Country or Region " );
+             document.petitionForm.geographicArea.focus() ;
+             return false;
+          }
+       
+         return( true );
+      }
+</script>
+
+
+
 </head>
 <%@ include file="header.jsp"%>
 <body>
@@ -120,7 +155,7 @@ button {
 
 
 			<form:form action="createPetition.htm" enctype="multipart/form-data"
-				method="post" modelAttribute="petition">
+				method="post" modelAttribute="petition" name= "petitionForm" onsubmit="return validate()">
 
 				<form:label path="name">Your Name:</form:label>
 				<form:input path="name" />
@@ -142,13 +177,17 @@ button {
 				<form:label path="signatureGoalCount">Signature Goal Count :</form:label>
 				<form:input path="signatureGoalCount" />
 				<br />
-
+				
+				<form:label path="geographicArea">City, Country or Region :</form:label>
+				<form:input path="geographicArea" />
+				<br />
+				
 				<form:label path="imageFile">Select a image to upload :</form:label>
 				<form:input type="file" path="imageFile" />
 				<br />
 
 
-				<form:button>Create Petition</form:button>
+				<form:button class="btn btn-primary">Create Petition</form:button>
 			</form:form>
 		</div>
 </body>

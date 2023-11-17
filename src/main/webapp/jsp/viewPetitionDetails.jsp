@@ -16,6 +16,26 @@
 <!DOCTYPE html>
 <html>
 <%@ include file="header.jsp"%>
+
+<script type = "text/javascript">
+      // Form validation code will come here.
+      function validate() {
+      
+         if( document.petitionSignature.name.value == "" ) {
+            alert( "Please enter your name" );
+            document.petitionSignature.name.focus() ;
+            return false;
+         }
+         if( document.petitionSignature.email.value == "" ) {
+             alert( "Please enter your email Id" );
+             document.petitionSignature.email.focus() ;
+             return false;
+          }
+       
+         return( true );
+      }
+</script>
+
 <body>
 	<div class="container">
 		<%
@@ -25,8 +45,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header bg-info bg-gradient" align="center">
-						<h5 class="card-title fw-bolder">Discover petitions to sign</h5>
+					<div class="card-header  " align="center">
+						<h5 class="card-title fw-bolder"><%=petition.getPetitionTitle()%> </h5>
 					</div>
 					<div class="card-body">
 						<table class="table">
@@ -43,13 +63,35 @@
 
 									</div>
 								</td>
-								<td><%=petition.getPetitionTitle()%> <br> <%=petition.getPetitionText()%></td>
-								<td><a
-									href="getPetitionDetails.htm?petitionId=<%=petition.getId()%>">Read
-										more</a></td>
+								<td>
+								<br>
+								Created on : <%=petition.getCreateDateTime()%> 
+								<br>
+								Started by : <%=petition.getName()%> 
+								<br>
+								<br> <%=petition.getPetitionText()%>
+										
+										
+										<br><br>
+								<div class="progress">
+  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style='width: <%=petition.getSignatureCount()%>%' aria-valuenow="<%=petition.getSignatureCount()%>" aria-valuemin="0" aria-valuemax="<%=petition.getSignatureGoalCount()%>">
+  </div>
+</div>
+		  <%=petition.getSignatureCount()%> signed of <%=petition.getSignatureGoalCount()%> goal	
+										
+										
+										
+										
+										</td>
 
 
 							</tr>
+							
+							
+							
+							
+							
+							
 						</table>
 					</div>
 				</div>
@@ -59,13 +101,13 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header bg-info bg-gradient" align="center">
+					<div class="card-header bg-primary bg-gradient py-3" align="center">
 						<h5 class="card-title fw-bolder">Sign this petition</h5>
 					</div>
 					<div class="card-body">
 
-						<form:form action="signPetition.htm" method="post"
-							modelAttribute="petitionSignature">
+						<form:form name="petitionSignature" action="signPetition.htm" method="post"
+							modelAttribute="petitionSignature" onsubmit="return validate()">
 
 							<form:label path="name">Your Name:</form:label>
 							<form:input path="name" />
@@ -91,7 +133,7 @@
 							<br />
 							<input id="petitionId" name="petitionId" type="hidden" value="<%=petition.getId()%>"/>
 							
-							<form:button>Sign this petition</form:button>
+							<form:button  class="btn btn-primary">Sign this petition</form:button>
 						</form:form>
 
 

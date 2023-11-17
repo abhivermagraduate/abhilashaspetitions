@@ -41,11 +41,11 @@ li a {
 }
 
 li a:hover:not(.active) {
-  background-color: green;
+  background-color: red;
 }
 
 .active {
-  background-color: green;
+  background-color: red;
 }
 
 div.gallery {
@@ -118,10 +118,15 @@ ol.no-numbers {
     padding: 40px 0px 20px 0px;
 }
 
-a:link, a:visited {
+
+
+.headerHyperLink1 {
   color: white;
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
 }
+
+
+

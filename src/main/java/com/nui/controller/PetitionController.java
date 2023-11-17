@@ -124,10 +124,8 @@ public class PetitionController {
 	@PostMapping("/signPetition.htm")
 	public String signPetition(@ModelAttribute("petitionSignature") PetitionSignature petitionSignature, Model model)
 			throws IOException {
-		System.err.println("petition " + petitionSignature);
-
 		getPetitionService().savePetitionSignature(petitionSignature);
-
+		model.addAttribute("displayMessage", "Petition Signed Successfully");
 		return showPetitions(model);
 	}
 
@@ -139,9 +137,7 @@ public class PetitionController {
 
 	@PostMapping("/searchPetition.htm")
 	public String searchPetition(HttpServletRequest request, Model model) {
-
 		String petitionTitle = request.getParameter("petitionTitle");
-		System.out.println("PetitionController.searchPetition()"+petitionTitle);
 		model.addAttribute("petitions", getPetitionService().searchPetition(petitionTitle));
 		return "searchPetitionResult";
 	}
