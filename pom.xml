@@ -65,6 +65,7 @@
 			</plugin>
 
 		</plugins>
+		<finalName>abhilashaspetitions</finalName>
 	</build>
 
 
