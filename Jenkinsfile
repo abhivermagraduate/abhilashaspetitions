@@ -24,7 +24,7 @@ stage ('Archive') {
             steps {
             archiveArtifacts allowEmptyArchive: true,
                 artifacts: '**/pipeline {
-    agent any
+                agent any
     stages {
         stage ('GetProject') {
             steps {
