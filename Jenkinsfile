@@ -27,7 +27,7 @@ stage ('Archive') {
             }
         }
         
-  stage ('Get Approval')
+  stage ('Approval')
         {
             steps {
             	input 'Please approve to proceed with deployment'
