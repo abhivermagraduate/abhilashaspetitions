@@ -26,6 +26,13 @@ stage ('Archive') {
                 artifacts: '**/abhilashaspetitions*.war'
             }
         }
+        
+  stage ('Get Approval')
+        {
+            steps {
+            	input 'Please approve to proceed with deployment'
+            }
+        }       
  stage ('Deploy')
         {
             steps {
