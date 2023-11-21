@@ -65,9 +65,11 @@
 								</td>
 								<td>
 								<br>
-								Created on : <%=petition.getCreateDateTime()%> 
+								<b>Created on</b> : <%=petition.getCreateDateTime()%> 
 								<br>
-								Started by : <%=petition.getName()%> 
+								<b>Started by</b> : <%=petition.getName()%> 
+								<br>
+								<b>City, Country or Region</b> : <%=petition.getGeographicArea()%> 
 								<br>
 								<br> <%=petition.getPetitionText()%>
 										

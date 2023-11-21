@@ -16,12 +16,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.nui.model.Petition;
 import com.nui.model.PetitionSignature;
 import com.nui.service.PetitionService;
@@ -56,7 +53,6 @@ public class PetitionController {
 
 	@PostMapping("/createPetition.htm")
 	public String createPetition(@ModelAttribute("petition") Petition petition, Model model) throws IOException {
-		System.err.println("petition " + petition);
 		saveImageFile(petition);
 		getPetitionService().savePetition(petition);
 		model.addAttribute("petition", petition);
