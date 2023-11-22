@@ -95,5 +95,4 @@ public class Petition {
 		this.signatureGoalCount = signatureGoalCount;
 	}
 	
-	
 }
