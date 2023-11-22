@@ -71,7 +71,7 @@
   <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style='width: <%=petition.getSignatureCount()%>%' aria-valuenow="<%=petition.getSignatureCount()%>" aria-valuemin="0" aria-valuemax="<%=petition.getSignatureGoalCount()%>">
   </div>
 </div>
-		 
+		 <%=petition.getSignatureCount()%> signed of <%=petition.getSignatureGoalCount()%> goal
 									
 								</td>
 								<td></td>
