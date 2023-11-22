@@ -94,13 +94,6 @@ public class Petition {
 	public void setSignatureGoalCount(Integer signatureGoalCount) {
 		this.signatureGoalCount = signatureGoalCount;
 	}
-	@Override
-	public String toString() {
-		return "Petition [name=" + name + ", email=" + email + ", petitionText=" + petitionText + ", id=" + id
-				+ ", imageFile=" + imageFile + ", imageId=" + imageId + ", petitionTitle=" + petitionTitle
-				+ ", petitionScope=" + petitionScope + ", geographicArea=" + geographicArea + ", createDateTime="
-				+ createDateTime + ", signatureCount=" + signatureCount + ", signatureGoalCount=" + signatureGoalCount
-				+ "]";
-	}
+	
 	
 }
