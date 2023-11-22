@@ -83,7 +83,7 @@ public class PetitionController {
 			InputStream filecontent = petition.getImageFile().getInputStream();
 			// Store file in this directory.
 
-			System.err.println(uploadPath);
+			//System.err.println(uploadPath);
 			File targetFile = new File(uploadPath + File.separator + imageFileName);
 			outStream = new FileOutputStream(targetFile);
 			byte[] buf = new byte[8192];
