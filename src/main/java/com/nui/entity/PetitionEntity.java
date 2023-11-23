@@ -1,3 +1,8 @@
+/**
+ * @author Abhilasha Verma
+ * Email : A.Verma7@nuigalway.ie 
+ * Student Number : 22102028
+ */
 package com.nui.entity;
 
 import java.sql.Timestamp;
