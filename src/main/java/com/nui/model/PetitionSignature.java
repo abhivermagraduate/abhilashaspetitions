@@ -2,6 +2,9 @@ package com.nui.model;
 
 import java.sql.Timestamp;
 
+/**
+ * This model class is used to hold petition signature data received from JSP form and database petition table.
+ */
 public class PetitionSignature {
 
 	private int id;

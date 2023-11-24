@@ -20,12 +20,13 @@ stage ('Package') {
             }
         }
 
-stage ('Archive') {
-            steps {
-            archiveArtifacts allowEmptyArchive: true,
-                artifacts: '**/abhilashaspetitions*.war'
-            }
-        }
+// commented out to reduce build and deploy time.
+// stage ('Archive') {
+//           steps {
+//            archiveArtifacts allowEmptyArchive: true,
+//               artifacts: '**/abhilashaspetitions*.war'
+//           }
+//       }
         
   stage ('Approval')
         {

@@ -1,3 +1,8 @@
+/**
+ * @author Abhilasha Verma
+ * Email : A.Verma7@nuigalway.ie 
+ * Student Number : 22102028
+ */
 package com.nui.entity;
 
 import java.sql.Timestamp;
@@ -9,6 +14,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+/**
+ * This entity class is mapped with petition_signature table.
+ */
 @Entity
 @Table(name = "petition_signature")
 public class PetitionSignatureEntity {
