@@ -9,8 +9,9 @@ git branch: 'main', url:
         }
         stage ('build') {
             steps {
-                sh 'mvn clean:clean'
-                sh 'mvn dependency:copy-dependencies'
+            // commented to reduce build time
+            //    sh 'mvn clean:clean'
+            //    sh 'mvn dependency:copy-dependencies'
                 sh 'mvn compiler:compile'
             }
         }
@@ -19,13 +20,13 @@ stage ('Package') {
                 sh 'mvn package'
             }
         }
-
-stage ('Archive') {
-            steps {
-            archiveArtifacts allowEmptyArchive: true,
-                artifacts: '**/abhilashaspetitions*.war'
-            }
-        }
+// commented to reduce build time
+//stage ('Archive') {
+//            steps {
+//            archiveArtifacts allowEmptyArchive: true,
+//                artifacts: '**/abhilashaspetitions*.war'
+//            }
+//        }
         
   stage ('Approval')
         {
