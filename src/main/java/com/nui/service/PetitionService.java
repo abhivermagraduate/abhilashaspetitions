@@ -112,7 +112,6 @@ public class PetitionService {
 		for (PetitionEntity petitionEntity : petitionEntities) {
 			petitionList.add(populatePetition(petitionEntity));
 		}
-		System.out.println("petitionList" +petitionList);
 		return petitionList;
 	}
 }
