@@ -16,6 +16,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+/**
+ * This entity class is mapped with petition table.
+ */
 @Entity
 @Table(name = "petition")
 public class PetitionEntity {

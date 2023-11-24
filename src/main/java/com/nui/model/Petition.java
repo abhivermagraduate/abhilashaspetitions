@@ -1,3 +1,8 @@
+/**
+ * @author Abhilasha Verma
+ * Email : A.Verma7@nuigalway.ie 
+ * Student Number : 22102028
+ */
 package com.nui.model;
 
 
@@ -5,6 +10,9 @@ import java.sql.Timestamp;
 
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * This model class is used to hold petition data received from JSP form and database petition table.
+ */
 public class Petition {
 
 	private String name;
