@@ -47,7 +47,7 @@ public class PetitionController {
 	private ServletContext context;
 
 	/**
-	 * Purpose of this method is to fetch all petitions from Data through PetitionService.getPetitions() and DAO layer PetitionRespository.findAl()l then display it through JSP - showPetitions.jsp.
+	 * Purpose of this method is to fetch all petitions data through PetitionService.getPetitions() and DAO layer PetitionRespository.findAll() then display it through JSP - showPetitions.jsp.
 	 * @param model
 	 * @return view
 	 */
@@ -59,7 +59,6 @@ public class PetitionController {
 
 	/**
 	 * Purpose of this method is to show Petition creation form - createPetition.jsp.
-
 	 * @param model
 	 * @return view
 	 */
@@ -75,7 +74,6 @@ public class PetitionController {
 	 * It internally calls  PetitionService.savePetition method and DAO layer : PetitionRespository().save method
 	 *  It also save uploaded  image on local directory by calling saveImageFile method.
 	 *  After successful creation of a petition it uses the showPetitions method to load all petitions from the database and displays them in the showPetitions.jsp file.
-
 	 * @param petition
 	 * @param model
 	 * @return view

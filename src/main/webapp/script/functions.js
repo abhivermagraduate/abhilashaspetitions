@@ -5,7 +5,7 @@
 
 
 /**
-* Purpose of this function is to get all comments from Firestore DB through getcomments Node Js API.
+* Purpose of this function is to search petition by sending ajax request to controller.
 *
 */
 function searchPetition() {
@@ -32,7 +32,7 @@ function searchPetition() {
 
 
 /**
-* Purpose of this function is to validate comment-box field data then call postComments function to store comments into Firestore DB through getcomments NodeJS API.
+* Purpose of this function is to validate search petition form data data then call searchPetition to send ajax request to controller.
 *
 */
 function submitSearch() {

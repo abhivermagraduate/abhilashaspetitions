@@ -2,7 +2,7 @@
     Email ID : A.Verma7@nuigalway.ie
     Student ID : 22102028
 -->
-<!-- Purpose of this jsp is to give option to user to upload xml file -->
+<!-- Purpose of this jsp is to display petition data -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>

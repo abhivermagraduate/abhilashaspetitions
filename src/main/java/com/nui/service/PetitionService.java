@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.nui.dao.PetitionRespository;
@@ -14,7 +12,10 @@ import com.nui.entity.PetitionEntity;
 import com.nui.entity.PetitionSignatureEntity;
 import com.nui.model.Petition;
 import com.nui.model.PetitionSignature;
-
+/**
+ * Purpose of this PetitionService class is to allow Create Petition,Show all Petitions,Petition detail and Search Petition
+ *  
+ */
 @Service
 public class PetitionService {
 
@@ -32,6 +33,10 @@ public class PetitionService {
 		this.petitionRespository = petitionRespository;
 	}
 
+	/**
+	 * Purpose of this method to create PetitionEntity and set values from Petition object.
+	 * @param petition
+	 */
 	public void savePetition(Petition petition) {
 		PetitionEntity petitionEntity = new PetitionEntity();
 		petitionEntity.setName(petition.getName());
@@ -47,6 +52,11 @@ public class PetitionService {
 		getPetitionRespository().save(petitionEntity);
 	}
 
+	/**
+	 * Purpose of this method is to fetch all petitions by calling DAO layer PetitionRespository.findAll() then convert PetitionEntity into Petition object.
+	 * @param model
+	 * @return view
+	 */
 	public List<Petition> getPetitions() {
 		List<Petition> petitionList = new ArrayList<Petition>();
 		List<PetitionEntity> petitionEntities = getPetitionRespository().findAll();
@@ -56,6 +66,11 @@ public class PetitionService {
 		return petitionList;
 	}
 
+	/**
+	 * Purpose of this method convert PetitionEntity into Petition object.
+	 * @param petitionEntity
+	 * @return petition
+	 */
 	private Petition populatePetition(PetitionEntity petitionEntity) {
 		Petition petition = new Petition();
 		petition.setEmail(petitionEntity.getEmail());
@@ -70,28 +85,48 @@ public class PetitionService {
 		petition.setSignatureGoalCount(petitionEntity.getSignatureGoalCount());
 		if (petitionEntity.getPetitionSignatures() != null)
 			petition.setSignatureCount(petitionEntity.getPetitionSignatures().size());
-		System.err.println(petitionEntity);
 		return petition;
 	}
 
+	/**
+	 * Purpose of this method is to get details of individual petition by internally calling getPetitionRespository().findById() method. 
+	 * then convert PetitionEntity into Petition object by calling populatePetition method.
+	 * @param petitionId
+	 * @return petition
+	 */
 	public Petition getPetitionDetails(Integer petitionId) {
-
 		return populatePetition(getPetitionEntityDetails(petitionId));
-
 	}
 
+	/**
+	 * Purpose of this getPetitionEntityDetails is to fetch petition record by petition id.
+	 * @param petitionId
+	 * @return petitionEntity
+	 */
 	private PetitionEntity getPetitionEntityDetails(Integer petitionId) {
 		return getPetitionRespository().findById(petitionId).get();
 	}
 
+	/**
+	 * Getter method to reurn  petitionSignatureRespository
+	 * @return petitionSignatureRespository
+	 */
 	public PetitionSignatureRespository getPetitionSignatureRespository() {
 		return petitionSignatureRespository;
 	}
 
+	/**
+	 * Setter method to set petitionSignatureRespository
+	 * @param petitionSignatureRespository
+	 */
 	public void setPetitionSignatureRespository(PetitionSignatureRespository petitionSignatureRespository) {
 		this.petitionSignatureRespository = petitionSignatureRespository;
 	}
 
+	/**
+	 * Purpose of this method to insert PetitionSignature data into database table by calling getPetitionSignatureRespository().save method
+	 * @param petitionSignature
+	 */
 	public void savePetitionSignature(PetitionSignature petitionSignature) {
 
 		PetitionEntity petition = getPetitionEntityDetails(petitionSignature.getPetitionId());
@@ -104,7 +139,11 @@ public class PetitionService {
 		getPetitionSignatureRespository().save(petitionSignatureEntity);
 	}
 
-	
+	/**
+	 * Purpose of this method to search petition by title.
+	 * @param petitionTitle
+	 * @return list of Petition
+	 */
 	public List<Petition> searchPetition(String petitionTitle) {
 		
 		List<Petition> petitionList = new ArrayList<Petition>();
